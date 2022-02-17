@@ -220,6 +220,67 @@ List of available routes:
 `PATCH /v1/users/:userId` - update user\
 `DELETE /v1/users/:userId` - delete user
 
+## Sample Curl
+**Login**:\
+```shell
+curl -X 'POST' \
+  'http://localhost:3000/v1/auth/login' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "andi@example.com",
+  "password": "password1"
+}'
+
+# Response Body
+{
+  "user": {
+    "role": "user",
+    "isEmailVerified": false,
+    "name": "andi",
+    "email": "andi@example.com",
+    "id": "620c875bf7df58130610b9b5"
+  },
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjBjODc1YmY3ZGY1ODEzMDYxMGI5YjUiLCJpYXQiOjE2NDUwNzc1NTQsImV4cCI6MTY0NTA3OTM1NCwidHlwZSI6ImFjY2VzcyJ9.gvmSkNfVGLSbEU0GRD5eBFfRY40sEs0M5q0b5zQksnY",
+      "expires": "2022-02-17T06:29:14.877Z"
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjBjODc1YmY3ZGY1ODEzMDYxMGI5YjUiLCJpYXQiOjE2NDUwNzc1NTQsImV4cCI6MTY0NzY2OTU1NCwidHlwZSI6InJlZnJlc2gifQ.7C4UW4SZ91MvSAwJOWK_1MbiU88oy_gmDRwSAP31EB0",
+      "expires": "2022-03-19T05:59:14.881Z"
+    }
+  }
+}
+
+```
+
+**Create a PayBill**:\
+```shell
+curl -X 'POST' \
+  'http://localhost:3000/v1/paybills' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MjBjODc1YmY3ZGY1ODEzMDYxMGI5YjUiLCJpYXQiOjE2NDUwNzc1NTQsImV4cCI6MTY0NTA3OTM1NCwidHlwZSI6ImFjY2VzcyJ9.gvmSkNfVGLSbEU0GRD5eBFfRY40sEs0M5q0b5zQksnY' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "userid": "620c875bf7df58130610b9b5",
+  "billid": "pln12345",
+  "currency": "IDR",
+  "amount": 2000
+}'
+
+# Response Body
+{
+  "currency": "IDR",
+  "amount": 2000,
+  "userid": "620c875bf7df58130610b9b5",
+  "billid": "pln12345",
+  "paybillguid": "1bca2abe-c4c9-4a87-9784-cea89202a47a",
+  "id": "620de4bea4e8822686a19eb5"
+}
+
+```
+
 ## Error Handling
 
 The app has a centralized error handling mechanism.
