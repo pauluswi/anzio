@@ -1,12 +1,15 @@
 # Anzio
 
+[![Node.js CI](https://github.com/pauluswi/anzio/actions/workflows/node.js.yml/badge.svg)](https://github.com/pauluswi/anzio/actions/workflows/node.js.yml)
 [![Build Status](https://travis-ci.org/hagopj13/node-express-boilerplate.svg?branch=master)](https://travis-ci.org/hagopj13/node-express-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/hagopj13/node-express-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/hagopj13/node-express-boilerplate?branch=master)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-A boilerplate/starter project for quickly building RESTful APIs using Node.js, Express, and Mongoose.
+A REST API Service using Node.js, Express, and Mongoose.
 
-By running a single command, you will get a production-ready Node.js app installed and fully configured on your machine. The app comes with many built-in features, such as authentication using JWT, request validation, unit and integration tests, continuous integration, docker support, API documentation, pagination, etc. For more details, check the features list below.
+There is Bill Payment use case, but since I use boilerplate that already have Auth and User use case, I decide to keep those.
+
+The app comes with many built-in features, such as authentication using JWT, request validation, unit and integration tests, continuous integration, docker support, API documentation, pagination, etc. 
 
 ## Quick Start
 
@@ -206,6 +209,13 @@ List of available routes:
 `POST /v1/auth/send-verification-email` - send verification email\
 `POST /v1/auth/verify-email` - verify email
 
+**PayBill routes**:\
+`POST /v1/paybills` - create a paybill\
+`GET /v1/paybills` - get all payiblls\
+`GET /v1/paybills/:Id` - get paybill\
+`PATCH /v1/paybills/:Id` - update a paybill\
+`DELETE /v1/paybills/:Id` - delete a paybill
+
 **User routes**:\
 `POST /v1/users` - create a user\
 `GET /v1/users` - get all users\
@@ -265,12 +275,12 @@ The validation schemas are defined in the `src/validations` directory and are us
 ```javascript
 const express = require('express');
 const validate = require('../../middlewares/validate');
-const userValidation = require('../../validations/user.validation');
-const userController = require('../../controllers/user.controller');
+const paybillValidation = require('../../validations/paybill.validation');
+const paybillController = require('../../controllers/paybill.controller');
 
 const router = express.Router();
 
-router.post('/users', validate(userValidation.createUser), userController.createUser);
+router.post('/paybills', validate(paybillValidation.createPayBill), paybillController.createPayBill);
 ```
 
 ## Authentication
@@ -429,11 +439,9 @@ To maintain a consistent coding style across different IDEs, the project contain
 
 Contributions are more than welcome! Please check out the [contributing guide](CONTRIBUTING.md).
 
-## Inspirations
+## Reference
 
-- [danielfsousa/express-rest-es2017-boilerplate](https://github.com/danielfsousa/express-rest-es2017-boilerplate)
-- [madhums/node-express-mongoose](https://github.com/madhums/node-express-mongoose)
-- [kunalkapadia/express-mongoose-es6-rest-api](https://github.com/kunalkapadia/express-mongoose-es6-rest-api)
+- [hagopj13/node-express-boilerplate](https://github.com/hagopj13/node-express-boilerplate)
 
 ## License
 
