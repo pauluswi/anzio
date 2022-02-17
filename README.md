@@ -1,9 +1,6 @@
 # Anzio
 
 [![Node.js CI](https://github.com/pauluswi/anzio/actions/workflows/node.js.yml/badge.svg)](https://github.com/pauluswi/anzio/actions/workflows/node.js.yml)
-[![Build Status](https://travis-ci.org/hagopj13/node-express-boilerplate.svg?branch=master)](https://travis-ci.org/hagopj13/node-express-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/hagopj13/node-express-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/hagopj13/node-express-boilerplate?branch=master)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A REST API Service using Node.js, Express, and Mongoose.
 
@@ -211,7 +208,7 @@ List of available routes:
 
 **PayBill routes**:\
 `POST /v1/paybills` - create a paybill\
-`GET /v1/paybills` - get all payiblls\
+`GET /v1/paybills` - get all paybills\
 `GET /v1/paybills/:Id` - get paybill\
 `PATCH /v1/paybills/:Id` - update a paybill\
 `DELETE /v1/paybills/:Id` - delete a paybill
@@ -434,10 +431,6 @@ To modify the ESLint configuration, update the `.eslintrc.json` file. To modify 
 To prevent a certain file or directory from being linted, add it to `.eslintignore` and `.prettierignore`.
 
 To maintain a consistent coding style across different IDEs, the project contains `.editorconfig`
-
-## Contributing
-
-Contributions are more than welcome! Please check out the [contributing guide](CONTRIBUTING.md).
 
 ## Reference
 
