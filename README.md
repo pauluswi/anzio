@@ -221,7 +221,7 @@ List of available routes:
 `DELETE /v1/users/:userId` - delete user
 
 ## Sample Curl
-**Login**:\
+**Login**
 ```shell
 curl -X 'POST' \
   'http://localhost:3000/v1/auth/login' \
@@ -255,7 +255,7 @@ curl -X 'POST' \
 
 ```
 
-**Create a PayBill**:\
+**Create a PayBill**
 ```shell
 curl -X 'POST' \
   'http://localhost:3000/v1/paybills' \
